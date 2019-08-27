@@ -19,7 +19,7 @@ namespace WebApp
                 defaults: new
                 {
                     controller = "GOODSTBLs",
-                    action = "Create",
+                    action = "Index",
                     id = UrlParameter.Optional
                 }
             );
