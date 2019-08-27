@@ -1,0 +1,42 @@
+﻿@model WebApp.Models.STOCKTBL
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>STOCKTBL</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GOODSID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GOODSID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STOCK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STOCK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LASTUDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LASTUDT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DEALID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
