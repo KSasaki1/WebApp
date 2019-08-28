@@ -4,13 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>商品在庫</h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新規在庫情報追加", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DEALID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.GOODSID)
         </th>
@@ -26,6 +28,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.DEALID)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.GOODSID)
         </td>
         <td>
@@ -35,11 +40,13 @@
             @Html.DisplayFor(modelItem => item.LASTUDT)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DEALID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DEALID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DEALID })
+            @Html.ActionLink("編集", "Edit", new { id=item.DEALID }) |
+            @Html.ActionLink("詳細", "Details", new { id=item.DEALID }) |
+            @Html.ActionLink("削除", "Delete", new { id=item.DEALID })
         </td>
     </tr>
 }
-
 </table>
+<p>
+    @Html.ActionLink("商品画面へ", "index", new {id = UrlParameter.Optional, controller = "GOODSTBLs" })
+</p>
