@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>商品</h2>
+<h2>商品一覧</h2>
 
 <p>
     @Html.ActionLink("新規商品追加", "Create")
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.PRICE)
         </td>
         <td>
-            @Html.ActionLink("編集", "Edit", new { id=item.GOODSID }) |
-            @Html.ActionLink("詳細", "Details", new { id=item.GOODSID }) |
-            @Html.ActionLink("削除", "Delete", new { id=item.GOODSID })
+            @Html.ActionLink("編集", "Edit", new { id =item.GOODSID.Trim() }) |
+            @Html.ActionLink("詳細", "Details", new { id =item.GOODSID.Trim() }) |
+            @Html.ActionLink("削除", "Delete", new { id =item.GOODSID.Trim() })
         </td>
     </tr>
 }
