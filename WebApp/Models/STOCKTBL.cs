@@ -16,7 +16,10 @@ namespace WebApp.Models
     {
         public string DEALID { get; set; }
         public string GOODSID { get; set; }
+        public string GOODSNM { get; set; }
+        public string PRICE { get; set; }
         public string STOCK { get; set; }
+        public string TPRICE { get; set; }
         public System.DateTimeOffset LASTUDT { get; set; }
     }
 }

@@ -19,7 +19,10 @@
           </Key>
           <Property Name="DEALID" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="GOODSID" Type="nchar" MaxLength="10" />
+          <Property Name="GOODSNM" Type="nvarchar" MaxLength="50" />
+          <Property Name="PRICE" Type="nvarchar" MaxLength="50" />
           <Property Name="STOCK" Type="nvarchar" MaxLength="50" />
+          <Property Name="TPRICE" Type="nvarchar" MaxLength="50" />
           <Property Name="LASTUDT" Type="datetimeoffset" Precision="7" Nullable="false" />
         </EntityType>
         <EntityContainer Name="trdbModelStoreContainer">
@@ -44,7 +47,10 @@
           </Key>
           <Property Name="DEALID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="GOODSID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="GOODSNM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRICE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="STOCK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TPRICE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LASTUDT" Type="DateTimeOffset" Nullable="false" Precision="7" />
         </EntityType>
         <EntityContainer Name="trdbEntities" annotation:LazyLoadingEnabled="true">
@@ -69,6 +75,9 @@
           <EntitySetMapping Name="STOCKTBL">
             <EntityTypeMapping TypeName="trdbModel.STOCKTBL">
               <MappingFragment StoreEntitySet="STOCKTBL">
+                <ScalarProperty Name="TPRICE" ColumnName="TPRICE" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="GOODSNM" ColumnName="GOODSNM" />
                 <ScalarProperty Name="DEALID" ColumnName="DEALID" />
                 <ScalarProperty Name="GOODSID" ColumnName="GOODSID" />
                 <ScalarProperty Name="STOCK" ColumnName="STOCK" />

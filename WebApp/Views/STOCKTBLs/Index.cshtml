@@ -17,7 +17,16 @@
             @Html.DisplayNameFor(model => model.GOODSID)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.GOODSNM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRICE)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.STOCK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TPRICE)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.LASTUDT)
@@ -34,14 +43,22 @@
             @Html.DisplayFor(modelItem => item.GOODSID)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.GOODSNM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRICE)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.STOCK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TPRICE)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.LASTUDT)
         </td>
         <td>
             @Html.ActionLink("編集", "Edit", new { id=item.DEALID.Trim() }) |
-            @Html.ActionLink("詳細", "Details", new { id=item.DEALID.Trim() }) |
             @Html.ActionLink("削除", "Delete", new { id=item.DEALID.Trim() })
         </td>
     </tr>
