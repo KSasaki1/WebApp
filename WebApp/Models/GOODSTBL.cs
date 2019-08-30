@@ -15,7 +15,7 @@ namespace WebApp.Models
     public partial class GOODSTBL
     {
         public string GOODSID { get; set; }
-        public string GOOSNM { get; set; }
         public string PRICE { get; set; }
+        public string GOODSNM { get; set; }
     }
 }
