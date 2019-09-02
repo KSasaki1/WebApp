@@ -45,7 +45,7 @@ namespace WebApp.Models
         // 詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GOODSID,GOOSNM,PRICE")] GOODSTBL gOODSTBL)
+        public ActionResult Create([Bind(Include = "GOODSID,GOODSNM,PRICE")] GOODSTBL gOODSTBL)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace WebApp.Models
         // 詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GOODSID,GOOSNM,PRICE")] GOODSTBL gOODSTBL)
+        public ActionResult Edit([Bind(Include = "GOODSID,GOODSNM,PRICE")] GOODSTBL gOODSTBL)
         {
             if (ModelState.IsValid)
             {

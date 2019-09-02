@@ -38,7 +38,7 @@
             <PropertyRef Name="GOODSID" />
           </Key>
           <Property Name="GOODSID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="PRICE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRICE" Type="String" FixedLength="false" MaxLength="50" Unicode="true" />
           <Property Name="GOODSNM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="STOCKTBL">
@@ -48,9 +48,9 @@
           <Property Name="DEALID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="GOODSID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="GOODSNM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PRICE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="STOCK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TPRICE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRICE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="STOCK" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TPRICE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="LASTUDT" Type="DateTimeOffset" Nullable="false" Precision="7" />
         </EntityType>
         <EntityContainer Name="trdbEntities" annotation:LazyLoadingEnabled="true">

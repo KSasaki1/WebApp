@@ -46,11 +46,29 @@ namespace WebApp
         // 詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DEALID,GOODSID,GOODSNM,PRICE,STOCK,TPRICE,LASTUDT")] STOCKTBL sTOCKTBL)
+        public ActionResult Create([Bind(Include = "GOODSID,STOCK")] STOCKTBL sTOCKTBL)
         {
             if (ModelState.IsValid)
             {
+                Models.GOODSTBL gOODSTBL;
+
                 db.STOCKTBL.Add(sTOCKTBL);
+
+                sTOCKTBL.DEALID = (from goods in db.GOODSTBL
+                                   where goods.GOODSID == sTOCKTBL.GOODSID
+                                   select goods.GOODSID).Single();
+
+                sTOCKTBL.GOODSNM = (from goods in db.GOODSTBL
+                                   where goods.GOODSID == sTOCKTBL.GOODSID
+                                   select goods.GOODSNM).Single();
+
+                sTOCKTBL.PRICE = (from goods in db.GOODSTBL
+                                    where goods.GOODSID == sTOCKTBL.GOODSID
+                                    select goods.PRICE).Single();
+
+                sTOCKTBL.TPRICE = (int.Parse(sTOCKTBL.PRICE) * int.Parse(sTOCKTBL.STOCK)).ToString();
+
+                sTOCKTBL.LASTUDT = DateTime.Now;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
