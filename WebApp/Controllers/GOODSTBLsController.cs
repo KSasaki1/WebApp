@@ -49,7 +49,19 @@ namespace WebApp.Models
         {
             if (ModelState.IsValid)
             {
+                Models.STOCKTBL sTOCKTBL = new STOCKTBL();
+                string initializer = "0";
+
                 db.GOODSTBL.Add(gOODSTBL);
+                db.STOCKTBL.Add(sTOCKTBL);
+                sTOCKTBL.DEALID = gOODSTBL.GOODSID;
+                sTOCKTBL.GOODSID = gOODSTBL.GOODSID;
+                sTOCKTBL.GOODSNM = gOODSTBL.GOODSNM;
+                sTOCKTBL.PRICE = gOODSTBL.PRICE;
+                sTOCKTBL.STOCK = initializer;
+                sTOCKTBL.TPRICE = initializer;
+                sTOCKTBL.LASTUDT = DateTime.Now;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -81,7 +93,15 @@ namespace WebApp.Models
         {
             if (ModelState.IsValid)
             {
+                Models.STOCKTBL sTOCKTBL = new STOCKTBL();
                 db.Entry(gOODSTBL).State = EntityState.Modified;
+
+                sTOCKTBL.PRICE = gOODSTBL.PRICE;
+                sTOCKTBL.STOCK = (from goods in db.STOCKTBL
+                                  where goods.DEALID == gOODSTBL.GOODSID
+                                  select goods.STOCK).Single();
+                sTOCKTBL.TPRICE = (int.Parse(sTOCKTBL.PRICE) * int.Parse(sTOCKTBL.STOCK)).ToString();
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -109,7 +129,11 @@ namespace WebApp.Models
         public ActionResult DeleteConfirmed(string id)
         {
             GOODSTBL gOODSTBL = db.GOODSTBL.Find(id);
+            STOCKTBL sTOCKTBL = db.STOCKTBL.Find(id);
+
             db.GOODSTBL.Remove(gOODSTBL);
+            db.STOCKTBL.Remove(sTOCKTBL);
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }

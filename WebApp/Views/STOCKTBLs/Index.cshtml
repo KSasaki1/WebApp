@@ -4,10 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>商品在庫一覧</h2>
-<p>
-    @Html.ActionLink("新規在庫情報追加", "Create")
-</p>
+<h2>在庫管理</h2>
+
 <table class="table">
     <tr>
         <th>
@@ -52,12 +50,11 @@
             @Html.DisplayFor(modelItem => item.LASTUDT)
         </td>
         <td>
-            @Html.ActionLink("編集", "Edit", new { id=item.DEALID.Trim() }) |
-            @Html.ActionLink("削除", "Delete", new { id=item.DEALID.Trim() })
+            @Html.ActionLink("編集", "Edit", new { id=item.DEALID.Trim() }) 
         </td>
     </tr>
 }
 </table>
 <p>
-    @Html.ActionLink("商品画面へ", "index", new {id = UrlParameter.Optional, controller = "GOODSTBLs" })
+    @Html.ActionLink("商品管理画面へ", "index", new {id = UrlParameter.Optional, controller = "GOODSTBLs" })
 </p>

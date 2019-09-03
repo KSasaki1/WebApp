@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>商品一覧</h2>
+<h2>商品管理</h2>
 
 <p>
     @Html.ActionLink("新規商品追加", "Create")
@@ -42,5 +42,5 @@
 }
 </table>
 <p>
-    @Html.ActionLink("商品在庫画面へ", "index", new {id = UrlParameter.Optional, controller = "STOCKTBLs" })
+    @Html.ActionLink("在庫管理画面へ", "index", new {id = UrlParameter.Optional, controller = "STOCKTBLs" })
 </p>

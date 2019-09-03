@@ -17,13 +17,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("商品管理システム", "Index", "GOODSTBLs", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("商品管理システム", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("ホーム", "Index", "Home")</li>
-                    <li>@Html.ActionLink("詳細", "About", "Home")</li>
-                    <li>@Html.ActionLink("問い合わせ", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("商品管理", "Index", "GOODSTBLs")</li>
+                    <li>@Html.ActionLink("在庫管理", "Index", "STOCKTBLs")</li>
+                    <li>@Html.ActionLink("お問い合わせ", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>

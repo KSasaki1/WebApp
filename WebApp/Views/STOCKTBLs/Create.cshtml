@@ -10,7 +10,8 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+
+    WebApp.Models.GOODSTBL gOODSTBL = new WebApp.Models.GOODSTBL();
     <div class="form-horizontal">
         <h4>STOCKTBL</h4>
         <hr />

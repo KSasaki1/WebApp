@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using WebApp.Models;
+using System.Web.UI.WebControls;
 
 namespace WebApp
 {
@@ -50,8 +54,6 @@ namespace WebApp
         {
             if (ModelState.IsValid)
             {
-                Models.GOODSTBL gOODSTBL;
-
                 db.STOCKTBL.Add(sTOCKTBL);
 
                 sTOCKTBL.DEALID = (from goods in db.GOODSTBL
@@ -96,11 +98,32 @@ namespace WebApp
         // 詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DEALID,GOODSID,GOODSNM,PRICE,STOCK,TPRICE,LASTUDT")] STOCKTBL sTOCKTBL)
+        public ActionResult Edit([Bind(Include = "DEALID,GOODSID,GOODSNM,STOCK")] STOCKTBL sTOCKTBL)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(sTOCKTBL).State = EntityState.Modified;
+
+                sTOCKTBL.DEALID = (from goods in db.GOODSTBL
+                                   where goods.GOODSID == sTOCKTBL.DEALID
+                                   select goods.GOODSID).Single();
+
+                sTOCKTBL.GOODSID = (from goods in db.GOODSTBL
+                                    where goods.GOODSID == sTOCKTBL.DEALID
+                                    select goods.GOODSID).Single();
+
+                sTOCKTBL.GOODSNM = (from goods in db.GOODSTBL
+                                    where goods.GOODSID == sTOCKTBL.DEALID
+                                    select goods.GOODSNM).Single();
+
+                sTOCKTBL.PRICE = (from goods in db.GOODSTBL
+                                  where goods.GOODSID == sTOCKTBL.DEALID
+                                  select goods.PRICE).Single();
+
+                sTOCKTBL.TPRICE = (int.Parse(sTOCKTBL.PRICE) * int.Parse(sTOCKTBL.STOCK)).ToString();
+
+                sTOCKTBL.LASTUDT = DateTime.Now;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

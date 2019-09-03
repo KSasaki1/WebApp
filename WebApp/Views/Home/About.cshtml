@@ -1,7 +1,27 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "商品管理システムの使い方";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2>
+<h3>1.商品の登録</h3>
 
-<p>Use this area to provide additional information.</p>
+<p>
+    @Html.ActionLink("商品管理", "index", new {id = UrlParameter.Optional, controller = "GOODSTBLs" })
+    ページから新規商品追加を選択して商品を登録してください。<br>
+    自動で在庫管理ページにも登録商品の情報が追加されます。
+</p>
+
+<h3>2.在庫数の登録</h3>
+
+<p>
+    @Html.ActionLink("在庫管理", "index", new {id = UrlParameter.Optional, controller = "STOCKTBLs" })
+    ページから「編集」をクリックして在庫数を入力してください。<br>
+    在庫数に対応した合計金額、在庫情報更新日時が自動で登録されます。
+</p>
+
+<h3>3.項目の削除</h3>
+
+<p>
+    @Html.ActionLink("商品管理", "index", new {id = UrlParameter.Optional, controller = "GOODSTBLs" })
+    ページから削除を選択して、項目の削除を行ってください。<br>
+    商品と結びついた在庫情報も削除されます。
+</p>
