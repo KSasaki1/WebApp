@@ -10,7 +10,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using WebApp.Models;
-using System.Web.UI.WebControls;
 
 namespace WebApp
 {

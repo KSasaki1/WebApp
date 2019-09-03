@@ -3,21 +3,26 @@
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    body{
+        background-color:aliceblue
+    }
+</style>
 
 <h2>商品管理</h2>
 
 <p>
     @Html.ActionLink("新規商品追加", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
+<table class="table" style="color:darkblue; outline-style:double">
+    <tr style="outline:">
+        <th style="font:normal;" >
             @Html.DisplayNameFor(model => model.GOODSID)
         </th>
-        <th>
+        <th style="font:xx-large;">
             @Html.DisplayNameFor(model => model.GOODSNM)
         </th>
-        <th>
+        <th on>
             @Html.DisplayNameFor(model => model.PRICE)
         </th>
         <th></th>

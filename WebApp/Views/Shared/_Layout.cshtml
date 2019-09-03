@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html style="background-color:royalblue">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
@@ -19,7 +19,7 @@
                 </button>
                 @Html.ActionLink("商品管理システム", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse"; style="color:Highlight">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("商品管理", "Index", "GOODSTBLs")</li>
                     <li>@Html.ActionLink("在庫管理", "Index", "STOCKTBLs")</li>
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" >
         @RenderBody()
         <hr />
 
