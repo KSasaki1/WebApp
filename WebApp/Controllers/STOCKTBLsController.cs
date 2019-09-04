@@ -67,7 +67,7 @@ namespace WebApp
                                     where goods.GOODSID == sTOCKTBL.GOODSID
                                     select goods.PRICE).Single();
 
-                sTOCKTBL.TPRICE = (int.Parse(sTOCKTBL.PRICE) * int.Parse(sTOCKTBL.STOCK)).ToString();
+                sTOCKTBL.TPRICE = sTOCKTBL.PRICE * sTOCKTBL.STOCK;
 
                 sTOCKTBL.LASTUDT = DateTime.Now;
                 db.SaveChanges();
@@ -119,7 +119,7 @@ namespace WebApp
                                   where goods.GOODSID == sTOCKTBL.DEALID
                                   select goods.PRICE).Single();
 
-                sTOCKTBL.TPRICE = (int.Parse(sTOCKTBL.PRICE) * int.Parse(sTOCKTBL.STOCK)).ToString();
+                sTOCKTBL.TPRICE = sTOCKTBL.PRICE * sTOCKTBL.STOCK;
 
                 sTOCKTBL.LASTUDT = DateTime.Now;
 

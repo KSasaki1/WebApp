@@ -9,13 +9,49 @@
 
 namespace WebApp.Models
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Net.Cache;
+    using System.Runtime.Remoting.Metadata.W3cXsd2001;
+    using System.Web.Helpers;
+    using System.Web.Mvc;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web.ModelBinding;
+    using System.Data.Entity.ModelConfiguration.Conventions;
+    using Microsoft.Ajax.Utilities;
+
     public partial class GOODSTBL
     {
+        [Required(ErrorMessage = "商品IDを入力してください")]
+        [MinLength(4, ErrorMessage = "商品IDは4桁の英数字で入力してください")]
+        [MaxLength(4, ErrorMessage = "商品IDは4桁の英数字で入力してください")]
+        
         public string GOODSID { get; set; }
-        public string PRICE { get; set; }
+
+        [Required(ErrorMessage = "単価を入力してください")]
+        [Range(0, 2147483647,ErrorMessage = "適切な金額を入力してください")]
+        public int PRICE { get; set; }
+
+        [Required(ErrorMessage = "商品名を入力してください")]
         public string GOODSNM { get; set; }
+
+
+        
+        public bool Check(string id)
+        {
+            trdbEntities db = new trdbEntities();
+            var check = db.GOODSTBL.Find(id);
+            if (check == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

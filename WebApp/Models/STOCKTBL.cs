@@ -11,15 +11,19 @@ namespace WebApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class STOCKTBL
     {
         public string DEALID { get; set; }
         public string GOODSID { get; set; }
         public string GOODSNM { get; set; }
-        public string PRICE { get; set; }
-        public string STOCK { get; set; }
-        public string TPRICE { get; set; }
-        public System.DateTimeOffset LASTUDT { get; set; }
+        public int PRICE { get; set; }
+
+        [Required(ErrorMessage = "在庫数を入力してください")]
+        [Range(0, 2147483647, ErrorMessage = "適切な数量を入力してください")]
+        public int STOCK { get; set; }
+        public int TPRICE { get; set; }
+        public System.DateTime LASTUDT { get; set; }
     }
 }

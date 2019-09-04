@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace WebApp.Models
 {
@@ -50,7 +51,7 @@ namespace WebApp.Models
             if (ModelState.IsValid)
             {
                 Models.STOCKTBL sTOCKTBL = new STOCKTBL();
-                string initializer = "0";
+                int initializer = 0;
 
                 db.GOODSTBL.Add(gOODSTBL);
                 db.STOCKTBL.Add(sTOCKTBL);
@@ -100,8 +101,8 @@ namespace WebApp.Models
                 sTOCKTBL.STOCK = (from goods in db.STOCKTBL
                                   where goods.DEALID == gOODSTBL.GOODSID
                                   select goods.STOCK).Single();
-                sTOCKTBL.TPRICE = (int.Parse(sTOCKTBL.PRICE) * int.Parse(sTOCKTBL.STOCK)).ToString();
-
+                sTOCKTBL.TPRICE = sTOCKTBL.PRICE * sTOCKTBL.STOCK;
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

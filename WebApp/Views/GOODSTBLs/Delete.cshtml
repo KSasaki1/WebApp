@@ -2,17 +2,26 @@
 
 @{
     ViewBag.Title = "Delete";
+    string name = "商品名";
+    string price = "単価";
 }
 
-<h2>登録商品の削除</h2>
+<style>
+    body {
+        background-color: black
+    }
+</style>
 
-<h3>本当にこの商品とその在庫情報を削除しますか?</h3>
-<div>
+
+<h2 style="color:azure">登録商品の削除</h2>
+
+<h3 style="color:azure">本当にこの商品とその在庫情報を削除しますか?</h3>
+<div style="color:azure">
     <h4>GOODSTBL</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.GOODSNM)
+            @Html.DisplayName(name)
         </dt>
 
         <dd>
@@ -20,21 +29,25 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PRICE)
+            @Html.DisplayName(price)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PRICE)
+            @Html.DisplayFor(model => model.PRICE)円
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
-
         <div class="form-actions no-color">
-            <input type="submit" value="削除" class="btn btn-default" /> |
+            <input type="submit" value="削除" class="btn btn-default"
+                   onclick="if (confirm('本当に？') == true) { alert('消しました') } else { alert('賢い選択です。'); return false;}" />
             @Html.ActionLink("商品一覧へ戻る", "Index")
         </div>
     }
 </div>
+
+
+

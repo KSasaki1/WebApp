@@ -2,6 +2,10 @@
 
 @{
     ViewBag.Title = "Create";
+    string id = "商品ID";
+    string name = "商品名";
+    string price = "単価";
+    
 }
 
 <h2>新規商品登録</h2>
@@ -16,7 +20,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.GOODSID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(id, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GOODSID, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.GOODSID, "", new { @class = "text-danger" })
@@ -24,7 +28,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GOODSNM, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GOODSNM, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.GOODSNM, "", new { @class = "text-danger" })
@@ -32,16 +36,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PRICE, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(price, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PRICE, new { htmlAttributes = new { @class = "form-control" } })
+                (単位:円)
                 @Html.ValidationMessageFor(model => model.PRICE, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" >
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="登録" class="btn btn-default" />
+                <input type="submit" value="登録" class="btn btn-default" onclick="return CheckValue();" />
             </div>
         </div>
     </div>
@@ -54,3 +59,4 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
