@@ -31,7 +31,12 @@
             @Html.Label(price, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
             @Html.DisplayFor(model => model.PRICE)
-            円
+            <select name="money">
+                <option value="\" selected>\(JPY)</option>
+                <option value="\" >\(CNY)</option>
+                <option value="$">$(USD)</option>
+                <option value="€">€(EUR)</option>
+            </select>
             </div>
         </div>
 
